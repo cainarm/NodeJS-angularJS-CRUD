@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"</script>
+        <script src="script.js"></script>
+
+    </head>
+    <body>
+        <h1>CRUD</h1>
+
+        <div ng-app="myApp" ng-controller="employees">
+
+            <button class="btn btn-success" ng-click="insert()" style="float:right;margin-right:10px;margin-top:-40px">Inserir</button>
+            <table class="table" >
+                <tr>
+                    <td>codigo</td>
+                    <td colspan="3">nome</td>
+
+                </tr>
+                <tr ng-repeat="x in names">
+                    <td>{{x.id}}</td>
+                    <td id="{{x.id}}">{{x.nome}}</td>
+
+                    <td><button class="btn btn-primary" ng-click="modify(x.id)">Modificar</button></td>
+                    <td><button class="btn btn-danger" ng-click="delete(x.id)">Deletar</button></td>
+                </tr>
+            </table>
+
+            <div class="row" ng-show="showme" ng-model="input" >
+
+                <div class="col-sm-12" >
+                    <div class="col-sm-6" >
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" ng-model="name">
+                        <input type="text" ng-show="false" ng-model="id">
+                        <br>
+                        <button class="btn btn-success"  ng-click="modifySubmit(action)" >Submit</button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
